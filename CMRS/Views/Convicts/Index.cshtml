@@ -1,0 +1,110 @@
+﻿@model IEnumerable<CMRS.Models.Convict>
+
+
+
+@using PagedList.Mvc;
+
+
+
+@{
+    ViewBag.Title = "Home-Convicts";
+    Layout = "~/Views/Shared/_LayoutPag.cshtml";
+}
+
+<h2>Convicts</h2>
+
+
+
+@using (Html.BeginForm("Index", "Convicts", FormMethod.Get))
+{
+        //the following are search options
+   <b> Search Option: </b>
+    @Html.RadioButton("option", "Name")  <text>Convict Name</text> 
+    @Html.RadioButton("option", "Offense") <text> Crime </text>
+    @Html.TextBox("search") <input  type ="submit" name ="submit" value ="Search"/>
+        }
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-striped table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ConvictName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ConvictAge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Offense)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CaseStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JailTerm)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrisonName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th></th>
+    </tr>
+
+    @if (Model.Count() == 0)
+    { <tr> <td colspan ="6"> Matching Records not found </td>
+    </tr>
+    }
+    else
+
+    {
+
+ foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ConvictName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ConvictAge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Offense)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CaseStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JailTerm)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrisonName)
+        </td>
+        <td>
+        <img src="@Url.Action("Details", "Convicts", new { id = item.Id })" width="50px" height="50px" />
+        </td>
+       
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Details", "Fulldet", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+        </td>
+    </tr>
+}
+    }
+</table>

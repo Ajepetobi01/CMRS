@@ -45,13 +45,27 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -141,25 +155,52 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\Management\AdminsController.cs" />
+    <Compile Include="Controllers\Management\ConvictsController.cs" />
+    <Compile Include="Controllers\Management\MissingItemsController.cs" />
+    <Compile Include="Controllers\Management\MissingPersonsController.cs" />
+    <Compile Include="Controllers\Management\MissingVehiclesController.cs" />
+    <Compile Include="Controllers\Management\Police_StationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\CmrsModel.cs" />
+    <Compile Include="Models\Convict.cs" />
+    <Compile Include="Models\MissingItem.cs" />
+    <Compile Include="Models\MissingPerson.cs" />
+    <Compile Include="Models\MissingVehicle.cs" />
+    <Compile Include="Models\Police_Station.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-cosmo.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\crms.jpg" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\Print.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -170,7 +211,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -184,19 +227,42 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\MissingItems\Create.cshtml" />
+    <Content Include="Views\MissingItems\Delete.cshtml" />
+    <Content Include="Views\MissingItems\Details.cshtml" />
+    <Content Include="Views\MissingItems\Edit.cshtml" />
+    <Content Include="Views\MissingItems\Index.cshtml" />
+    <Content Include="Views\MissingPersons\Create.cshtml" />
+    <Content Include="Views\MissingPersons\Delete.cshtml" />
+    <Content Include="Views\MissingPersons\Details.cshtml" />
+    <Content Include="Views\MissingPersons\Edit.cshtml" />
+    <Content Include="Views\MissingPersons\Index.cshtml" />
+    <Content Include="Views\MissingVehicles\Create.cshtml" />
+    <Content Include="Views\MissingVehicles\Delete.cshtml" />
+    <Content Include="Views\MissingVehicles\Details.cshtml" />
+    <Content Include="Views\MissingVehicles\Edit.cshtml" />
+    <Content Include="Views\MissingVehicles\Index.cshtml" />
+    <Content Include="Views\Convicts\Create.cshtml" />
+    <Content Include="Views\Convicts\Delete.cshtml" />
+    <Content Include="Views\Convicts\Details.cshtml" />
+    <Content Include="Views\Convicts\Edit.cshtml" />
+    <Content Include="Views\Convicts\Index.cshtml" />
+    <Content Include="Views\Police_Station\Create.cshtml" />
+    <Content Include="Views\Police_Station\Delete.cshtml" />
+    <Content Include="Views\Police_Station\Details.cshtml" />
+    <Content Include="Views\Police_Station\Edit.cshtml" />
+    <Content Include="Views\Police_Station\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutPag.cshtml" />
+    <Content Include="Views\Convicts\Fulldet.cshtml" />
+    <Content Include="Views\Convicts\PrintReport.cshtml" />
+    <Content Include="Views\Admins\Create.cshtml" />
+    <Content Include="Views\Admins\Delete.cshtml" />
+    <Content Include="Views\Admins\Details.cshtml" />
+    <Content Include="Views\Admins\Edit.cshtml" />
+    <Content Include="Views\Admins\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

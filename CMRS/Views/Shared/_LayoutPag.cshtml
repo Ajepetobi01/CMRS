@@ -16,14 +16,15 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("CMRS", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("CMRS", "Index", "Convicts", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Report Item", "Create", "MissingItems")</li>
-                    <li>@Html.ActionLink("Missing Person", "Create", "MissingPersons")</li>
-                    <li>@Html.ActionLink("Vehicles", "Create", "MissingVehicles")</li>
-                    <li>@Html.ActionLink("Faqs", "Faqs", "Home")</li>
+                    <li>@Html.ActionLink("Convict", "Index", "Convicts")</li>
+                    <li>@Html.ActionLink("Missing Items", "Index", "MissingItems")</li>
+                    <li>@Html.ActionLink("Missing Vehicles", "Index", "MissingVehicles")</li>
+                    <li>@Html.ActionLink("Missing Persons", "Index", "MissingPersons")</li>
+                    <li>@Html.ActionLink("Police Stations", "Index", "Police_Station")</li>
                 </ul>
             </div>
         </div>
@@ -32,7 +33,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - CMRS by Sola</p>
+            <p>&copy; @DateTime.Now.Year - CMRS</p>
         </footer>
     </div>
 

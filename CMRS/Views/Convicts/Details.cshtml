@@ -1,0 +1,91 @@
+﻿@model CMRS.Models.Convict
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutPag.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Convict</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ConvictName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConvictName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ConvictAge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConvictAge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Offense)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Offense)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CaseStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CaseStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JailTerm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JailTerm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrisonName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrisonName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd>
+            <img src="@Url.Action("Details", new { id =Model.Id})" />
+</dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,139 @@
+﻿@model CMRS.Models.MissingPerson
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutPag.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MissingPerson</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NameOfReporter)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameOfReporter)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NameOfMisPer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameOfMisPer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GenderOfMisPer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GenderOfMisPer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AgeOfMisPer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AgeOfMisPer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastSeenDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastSeenDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PocPer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PocPer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AddOfMisPer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddOfMisPer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DetOfMisPer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DetOfMisPer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SuspectValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SuspectValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SuspectName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SuspectName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SuspectDetails)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SuspectDetails)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PoliceStation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PoliceStation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InvestigatingOff)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvestigatingOff)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReportDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReportDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CaseStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CaseStatus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

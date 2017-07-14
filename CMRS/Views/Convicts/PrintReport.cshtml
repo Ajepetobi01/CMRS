@@ -1,0 +1,111 @@
+﻿@model CMRS.Models.Convict
+
+@{
+    ViewBag.Title = "Full Status";
+    Layout = "~/Views/Shared/_LayoutPag.cshtml";
+}
+
+<h2>Criminal Report</h2>
+
+
+<div>
+    <h4>Convict</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ConvictName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConvictName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ConvictAge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConvictAge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Offense)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Offense)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CaseStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CaseStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JailTerm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JailTerm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrisonName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrisonName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd>
+            <img src="@Url.Action("Details", "Convicts", new { id = Model.Id })" width="50px" height="50px" />
+
+        </dd>
+
+    </dl>
+
+
+    <p>
+        <input type="button" id="btnPrint" value="Print" class="btn-primary" />
+    </p>
+
+    <p> 
+            @Html.ActionLink("Cancel", "Index")
+
+    </p>
+</div>
+
+@section scripts
+{
+    <script>
+        $(function() {
+            $("#btnPrint").click(function () {
+                window.print()
+
+            });
+        });
+    </script>
+}
